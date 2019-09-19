@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup as bs
 import requests
-# import os
 
 
 def main():
@@ -9,21 +8,7 @@ def main():
     src = requests.get(url).text
     soup = bs(src, 'lxml')
 
-    # folder_name = location() + "/xkcd"
-    # os.makedirs(folder_name, exist_ok=True)
-    # os.chdir(folder_name)
-
     download_img(archive_list(soup))
-
-
-# def location():
-#     """
-#     Asks the user for a path to create the folder for downloaded comics
-#     in
-#     """
-#     path = input('Please enter the path for your comics to be kept')
-#
-#     return path
 
 
 def archive_list(soup_obj) -> set:
